@@ -1,0 +1,36 @@
+[Logger]
+	Debug	= false	
+	Console	= false
+
+[Database]
+	ConnMaxLifetime = 0
+	MaxOpenConns    = 10
+	MaxIdleConns    = 5
+	
+[HTTP]
+	Address	            = ":80"
+	MetricsAddress	    = ":8080"
+	ReadTimeout      	= "20s"
+	ReadHeaderTimeout 	= "1m"
+	WriteTimeout     	= "1m"
+	IdleTimeout      	= "0s"
+	MaxHeaderBytes   	= 0
+
+[GRPC]
+	Address	= ":7069"
+
+[Calculator]
+	[Calculator.RateLimiter]
+		Interval = "10μs" 
+		B        = 60 
+	[Calculator.CircuitBreaker]
+		MaxRequests = 10 
+		Interval    = "500ms" 
+		Timeout     = "1s"
+	
+[Storekeeper]
+	TriggerTime = 60 
+
+[PiClient]
+	Timeout = "5s" 
+	Address = "https://api.pi.delivery"

@@ -1,0 +1,47 @@
+syntax = "proto3";
+package pb.calculator;
+
+// The Calculator service definition.
+service Calculator {
+  // Subtract subtracts one number for other
+  rpc Subtract (SubtractRequest) returns (SubtractReply) {}
+  // Multiply multiplies too numbers
+  rpc Multiply (MultiplyRequest) returns (MultiplyReply) {}
+  // Pi returns the pi number
+  rpc Pi (PiRequest) returns (PiReply) {}
+}
+
+// ===========Subtract===========
+message SubtractRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message SubtractReply { 
+  int32 code = 1;
+  string error = 2;
+  int32 sub = 3;
+}
+
+// ===========Multiply===========
+message MultiplyRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message MultiplyReply { 
+  int32 code = 1;
+  string error = 2;
+  int32 mult = 3;
+}
+
+// ===========Pi===========
+message PiRequest {
+  int32 count = 1;
+}
+
+message PiReply { 
+  int32 code = 1;
+  string error = 2;
+  string pi = 3;
+}
